@@ -215,7 +215,7 @@ rules:
     then:
       function: undefined
 
-  az-operation-id:
+  mac-operation-id:
     description: OperationId should conform to Azure API Guidelines
     message: '{{error}}'
     severity: warn
@@ -586,15 +586,15 @@ rules:
       field: schema
       function: truthy
 
-  az-version-convention:
-    description: API version should be a date in YYYY-MM-DD format, optionally suffixed with '-preview'.
+  mac-version-convention:
+    description: API version should be in semver format.
     severity: error
     formats: ['oas2', 'oas3']
     given: $.info.version
     then:
       function: pattern
       functionOptions:
-        match: '^\d\d\d\d-\d\d-\d\d(-preview)?$'
+        match: '^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$'
 
   az-version-policy:
     description: Specify API version using `api-version` query parameter, not in path.

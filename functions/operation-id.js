@@ -1,5 +1,5 @@
 // Check conformance to Azure operationId conventions:
-// - operationIds should have the form "noun_verb" with just one underscore separator [R1001, R2055]
+// - operationIds should have the form "noun-verb" with just one hyphen separator
 // - get operation on a collection should have "list" in the operationId verb
 // - get operation on a single instance should have "get" in the operationId verb
 // - put operation that returns 201 should have "create" in the operationId verb
@@ -25,10 +25,10 @@ module.exports = (operation, _opts, paths) => {
     return errors;
   }
 
-  const m = operation.operationId.match(/[A-Za-z0-9]+_([A-Za-z0-9]+)/);
+  const m = operation.operationId.match(/[A-Za-z0-9]+-([A-Za-z0-9]+)/);
   if (!m) {
     errors.push({
-      message: 'OperationId should be of the form "Noun_Verb"',
+      message: 'OperationId should be of the form "Noun-Verb"',
       path: [...path, 'operationId'],
     });
   }
