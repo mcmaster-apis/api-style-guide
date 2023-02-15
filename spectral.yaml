@@ -21,12 +21,12 @@ functions:
   - schema-type-and-format
   - version-policy
 rules:
-  info-contact: off
+#  info-contact: off
   no-$ref-siblings: off
   oas2-api-host: off
   oas2-api-schemes: off
-  openapi-tags: off
-  operation-description: off
+#  openapi-tags: off
+#  operation-description: off
   operation-tags: off
   operation-tag-defined: off
 
@@ -216,7 +216,7 @@ rules:
       function: undefined
 
   mac-operation-id:
-    description: OperationId should conform to Azure API Guidelines
+    description: OperationId should conform to McMaster API Guidelines
     message: '{{error}}'
     severity: warn
     given:

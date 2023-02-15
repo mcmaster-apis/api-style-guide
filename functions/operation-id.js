@@ -11,11 +11,12 @@
 // - post operation should not have "post" in the operationId verb
 // - delete operation should have "delete" in the operationId verb
 
-module.exports = (operation, _opts, paths) => {
+export default (operation, _opts, paths) => {
   // targetVal should be an operation
   if (operation === null || typeof operation !== 'object') {
     return [];
   }
+
   const path = paths.path || paths.target || [];
 
   const errors = [];
